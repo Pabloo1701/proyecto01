@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title  class="ion-text-center">Bienvenido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-button expand="block" fill="clear" routerLink="/par">
+    SUBE TU PAR
+  </ion-button>
+  <ion-button expand="block" (click)="logOut()" >Cerrar Sesion</ion-button> 
+  <div class="ion-padding">
+
+    <ion-infinite-scroll>
+  
+     <ion-title class="ion-text-center">Informacion</ion-title>
+  
+     <ion-list>
+      
+      <ion-item-sliding class="align-items-center" *ngFor="let record of ingreso; let i = index">
+  
+       <ion-item>
+         
+        <ion-input cols="20" readonly="true" position="fidex"> Nombre Vendedor: {{record.nombre}} Telefono: {{record.telefono}} Correo: {{record.correo}} Detalle: {{record.detalle}} </ion-input>
+       </ion-item>
+  
+       <ion-item-options side="end" (click)="cambiarestado(record.id)" >
+       <ion-item-option color="danger"> cambiar </ion-item-option>
+  
+       </ion-item-options>
+  
+      </ion-item-sliding>
+  
+  
+  
+     </ion-list>
+       
+       
+      
+  </ion-infinite-scroll>
+  </div>
+
+</ion-content>
